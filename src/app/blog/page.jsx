@@ -62,7 +62,7 @@ const BlogCard = () => {
   return (
     <>
      <div className='flex items-center justify-center w-full p-4 md:p-9' >
-      <div className='relative w-full max-w-3xl h-fit'>
+      <div className='relative w-full max-w-4xl h-fit'>
       <Image
         src="/headerImage.jpg"
         layout='responsive'

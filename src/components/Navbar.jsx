@@ -4,18 +4,44 @@ import React, { useState } from 'react';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false); // State to manage search visibility in mobile
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
   return (
-    <nav className=" p-4">
+    <nav className=" p-3 md:ps-40 ">
       <div className="container mx-auto flex justify-between items-center px-4">
+        {/* Brand Logo */}
         <div className="text-white font-bold text-xl w-1/4">
           <Link href={"/"}>BrandName</Link>
         </div>
-        <div className="md:hidden">
+
+        {/* Mobile Menu & Search Toggle */}
+        <div className="md:hidden flex gap-4">
+          {/* Search Button for Mobile */}
+          <button onClick={toggleSearch} className="text-white focus:outline-none">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-4.35-4.35M18 10.5A7.5 7.5 0 1 1 10.5 3a7.5 7.5 0 0 1 7.5 7.5z"
+              />
+            </svg>
+          </button>
+          {/* Hamburger Menu Button */}
           <button onClick={toggleMenu} className="text-white focus:outline-none">
             <svg
               className="w-6 h-6"
@@ -33,8 +59,10 @@ function Navbar() {
             </svg>
           </button>
         </div>
-        <div className={`w-2/4 md:flex justify-center md:items-center md:w-2/4 ${isOpen ? 'block' : 'hidden'}`}>
-          <div className="md:flex md:items-center md:justify-center ">
+
+        {/* Links Section (Visible in Medium and Larger Screens) */}
+        <div className={`w-2/4 hidden md:flex justify-center md:me-11 md:items-center md:w-2/4 ${isOpen ? 'block' : 'hidden'}`}>
+          <div className="md:flex md:items-center md:justify-center">
             <div className="text-white md:flex md:gap-4">
               <Link href={"/"} className="block mt-4 md:inline-block md:mt-0">
                 Home
@@ -51,14 +79,47 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="hidden md:flex justify-between w-1/4 ps-14">
+
+        {/* Search Input for Large Screens */}
+        <div className="hidden md:flex justify-between w-1/4  pe-96">
           <input
             type="text"
             placeholder="Search"
-            className="bg-gray-700 text-white rounded-full px-3 py-1  focus:outline-none"
+            className="bg-gray-700 text-white rounded-full px-3 py-1 focus:outline-none"
           />
         </div>
       </div>
+
+      {/* Search Input for Mobile (Visible if toggled) */}
+      {isSearchOpen && (
+        <div className="mt-4 flex justify-center md:hidden">
+          <input
+            type="text"
+            placeholder="Search"
+            className="bg-gray-800 text-white rounded-full px-3 py-1 w-3/4 focus:outline-none"
+          />
+        </div>
+      )}
+
+      {/* Mobile Menu (Visible if toggled) */}
+      {isOpen && (
+        <div className="flex justify-center md:hidden bg-gray-800 p-4 mt-2 rounded-lg">
+          <div className="flex flex-col gap-4">
+            <Link href={"/"} className="text-white block hover:text-gray-400">
+              Home
+            </Link>
+            <Link href={"/blog"} className="text-white block hover:text-gray-400">
+              Blog
+            </Link>
+            <Link href={"/single post"} className="text-white block hover:text-gray-400">
+              Single Post
+            </Link>
+            <Link href={"/pages"} className="text-white block hover:text-gray-400">
+              Pages
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
