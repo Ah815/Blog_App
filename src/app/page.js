@@ -1,5 +1,6 @@
 
-import BlogCard from "@/components/BlogCard";
+import BlogCard from "@/app/blog/page";
+import Footer from "@/components/Footer";
 import HomeHeader from "@/components/HomeHeader";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
@@ -11,6 +12,7 @@ export default function Home() {
     <Navbar />
     <HomeHeader />
     <BlogCard />
+    <Footer />
     </>
   );
 }
