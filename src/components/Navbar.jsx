@@ -1,10 +1,12 @@
-'use client';
-import Link from 'next/link';
-import React, { useState } from 'react';
+"use client";
+import Link from "next/link";
+import React, { useState } from "react";
+import { usePathname } from "next/navigation"; // Import usePathname to detect the active route
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // State to manage search visibility in mobile
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const pathname = usePathname(); // Get the current path
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -14,8 +16,15 @@ function Navbar() {
     setIsSearchOpen(!isSearchOpen);
   };
 
+  // Function to add active class with underline
+  const getLinkClasses = (route) => {
+    return pathname === route
+      ? "block mt-4 md:inline-block md:mt-0 text-blue-400 "
+      : "block mt-4 md:inline-block md:mt-0 hover:text-blue-400";
+  };
+
   return (
-    <nav className=" p-3 md:ps-40 ">
+    <nav className="p-3 md:ps-40">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Brand Logo */}
         <div className="text-white font-bold text-xl w-1/4">
@@ -25,7 +34,10 @@ function Navbar() {
         {/* Mobile Menu & Search Toggle */}
         <div className="md:hidden flex gap-4">
           {/* Search Button for Mobile */}
-          <button onClick={toggleSearch} className="text-white focus:outline-none">
+          <button
+            onClick={toggleSearch}
+            className="text-white focus:outline-none"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -42,7 +54,10 @@ function Navbar() {
             </svg>
           </button>
           {/* Hamburger Menu Button */}
-          <button onClick={toggleMenu} className="text-white focus:outline-none">
+          <button
+            onClick={toggleMenu}
+            className="text-white focus:outline-none"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -54,38 +69,45 @@ function Navbar() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
               />
             </svg>
           </button>
         </div>
 
         {/* Links Section (Visible in Medium and Larger Screens) */}
-        <div className={`w-2/4 hidden md:flex justify-center md:me-11 md:items-center md:w-2/4 ${isOpen ? 'block' : 'hidden'}`}>
+        <div
+          className={`w-2/4 hidden md:flex justify-center md:me-11 md:items-center md:w-2/4 ${
+            isOpen ? "block" : "hidden"
+          }`}
+        >
           <div className="md:flex md:items-center md:justify-center">
             <div className="text-white md:flex md:gap-4">
-              <Link href={"/"} className="block mt-4 md:inline-block md:mt-0">
+              <Link href={"/"} className={getLinkClasses("/")}>
                 Home
               </Link>
-              <Link href={"/blog"} className="block mt-4 md:inline-block md:mt-0">
+              <Link href={"/blog"} className={getLinkClasses("/blog")}>
                 Blog
               </Link>
-              <Link href={"/single post"} className="block mt-4 md:inline-block md:mt-0">
-                Single Post
-              </Link>
-              <Link href={"/pages"} className="block mt-4 md:inline-block md:mt-0">
+              {/* <Link href={"/pages"} className={getLinkClasses("/pages")}>
                 Pages
+              </Link> */}
+              <Link href={"/about"} className={getLinkClasses("/about")}>
+                About
+              </Link>
+              <Link href={"/addBlog"} className={getLinkClasses("/addBlog")}>
+                AddBlog
               </Link>
             </div>
           </div>
         </div>
 
         {/* Search Input for Large Screens */}
-        <div className="hidden md:flex justify-between w-1/4  pe-96">
+        <div className="hidden md:flex justify-between w-1/4 pe-96">
           <input
             type="text"
             placeholder="Search"
-            className="bg-gray-700 text-white rounded-full px-3 py-1 focus:outline-none"
+            className="bg-gray-800 text-white rounded-full px-3 py-1 focus:outline-none"
           />
         </div>
       </div>
@@ -100,22 +122,23 @@ function Navbar() {
           />
         </div>
       )}
+      
 
       {/* Mobile Menu (Visible if toggled) */}
       {isOpen && (
         <div className="flex justify-center md:hidden bg-gray-800 p-4 mt-2 rounded-lg">
           <div className="flex flex-col gap-4">
-            <Link href={"/"} className="text-white block hover:text-gray-400">
+            <Link href={"/"} className={getLinkClasses("/")}>
               Home
             </Link>
-            <Link href={"/blog"} className="text-white block hover:text-gray-400">
+            <Link href={"/blog"} className={getLinkClasses("/blog")}>
               Blog
             </Link>
-            <Link href={"/single post"} className="text-white block hover:text-gray-400">
-              Single Post
-            </Link>
-            <Link href={"/pages"} className="text-white block hover:text-gray-400">
+            {/* <Link href={"/pages"} className={("/pages")}>
               Pages
+            </Link> */}
+            <Link href={"/contacts"} className={getLinkClasses("/contacts")}>
+              Contacts
             </Link>
           </div>
         </div>

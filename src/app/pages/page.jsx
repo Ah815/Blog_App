@@ -1,7 +1,19 @@
-import React from "react";
+"use client";
 import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
-const HomeHeader = () => {
+const pages = () => {
   const data = [
     {
       img: "/testImg.jpg",
@@ -85,22 +97,76 @@ const HomeHeader = () => {
       date: "August 20, 2022",
     },
   ];
+
   return (
     <>
-      <div className="flex items-center justify-center w-full p-4 md:p-9">
-        <div className="relative w-full max-w-4xl h-fit">
-          <Image
-            src="/headerImage.jpg"
-            layout="responsive"
-            width={500}
-            height={500} // Custom height
-            alt="Picture of the author"
-            style={{ height: "700px", borderRadius: "10px" }} // Ensures the image maintains aspect ratio
-          />
-        </div>
+      <div>
+        <Navbar />
       </div>
-      <div className="flex text-lg font-semibold md:flex items-center justify-center p-4">
-        <h4>Latest Post</h4>
+      <div className="flex justify-end p-4 md:pe-44">
+      <button className="bg-gray-800 text-gray-300 py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-all duration-300">
+        <Link href={"newBlog"} className={("newBlog")}>Add New Blog</Link>
+      </button>
+      <input
+        type="file"
+        id="file"
+        name="file"
+        className="hidden" // This will hide the input, we can trigger it from the button
+      />
+    </div>
+
+      <div className="bg-gray-800 text-white p-6 rounded-lg w-5/6 mx-auto text-center md:max-w-3xl md:mx-auto mt-10">
+        <div className="flex items-center justify-center mb-4">
+          <div className="mr-4"></div>
+          <div className="text-left">
+            <h3 className="flex justify-center text-lg font-semibold">
+              Muhammad Ahmed Hussain
+            </h3>
+            <p className="flex justify-center text-gray-400">
+              Collaborator & Editor
+            </p>
+          </div>
+        </div>
+        <p className="text-sm text-gray-300 mb-4">
+          Meet Jonathan Doe, a passionate writer and blogger with a love for
+          technology and travel. Jonathan holds a degree in Computer Science and
+          has spent years working in the tech industry, gaining a deep
+          understanding of the impact technology has on our lives.
+        </p>
+        <div className="flex justify-center space-x-4">
+          <a
+            href="https://www.facebook.com/yourprofile"
+            target="_blank"
+            className="text-gray-400 hover:text-white"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faFacebook} size="2x" />
+          </a>
+          <a
+            href="https://www.twitter.com/yourprofile"
+            target="_blank"
+            className="text-gray-400 hover:text-white"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+          <a
+            href="https://www.instagram.com/yourprofile"
+            target="_blank"
+            className="text-gray-400 hover:text-white"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yourprofile"
+            target="_blank"
+            className="text-gray-400 hover:text-white"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+          </a>
+        </div>
       </div>
 
       <div className="flex items-center justify-center w-full p-4 md:p-9">
@@ -148,8 +214,12 @@ const HomeHeader = () => {
           </div>
         </div>
       </div>
+
+      <div>
+        <Footer />
+      </div>
     </>
   );
 };
 
-export default HomeHeader;
+export default pages;
