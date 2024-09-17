@@ -140,6 +140,9 @@ function Navbar() {
             <Link href={"/contacts"} className={getLinkClasses("/contacts")}>
               Contacts
             </Link>
+            <Link href={"/addBlog"} className={getLinkClasses("/addBlog")}>
+                AddBlog
+              </Link>
           </div>
         </div>
       )}
