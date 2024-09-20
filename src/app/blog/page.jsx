@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
@@ -95,10 +95,15 @@ const BlogCard = () => {
  // Calculate total pages
  const totalPages = Math.ceil(data.length / blogsPerPage);
 
- // Calculate current page blogs
- const indexOfLastBlog = currentPage * blogsPerPage;
- const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
- const currentBlogs = data.slice(indexOfFirstBlog, indexOfLastBlog);
+ // Pagination logic wrapped in useEffect to re-calculate when currentPage changes
+ const [currentBlogs, setCurrentBlogs] = useState([]);
+
+ useEffect(() => {
+   const indexOfLastBlog = currentPage * blogsPerPage;
+   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+   const currentBlogs = data.slice(indexOfFirstBlog, indexOfLastBlog);
+   setCurrentBlogs(currentBlogs); // Update the currentBlogs state when page changes
+ }, [currentPage, data]); // Dependency array ensures it updates when currentPage or data changes
 
  // Pagination handlers
  const handleNextPage = () => {
@@ -112,6 +117,7 @@ const BlogCard = () => {
      setCurrentPage(currentPage - 1);
    }
  };
+
 
  return (
    <>
@@ -182,7 +188,7 @@ const HoverCard = ({ item }) => {
    <div
      onMouseEnter={() => setHover(true)}
      onMouseLeave={() => setHover(false)}
-     className={`relative bg-gray-900 p-3 rounded-lg text-white transition-transform transform ${
+     className={`relative bg-black p-3 shadow-sm shadow-slate-400 rounded-lg text-white transition-transform transform ${
        hover ? "rotate-6" : ""
      } hover:scale-105 hover:bg-gray-800 hover:shadow-lg hover:opacity-90 sm:hover:opacity-100`}
    >

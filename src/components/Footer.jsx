@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className=" text-white  py-10">
+    <footer className="text-white  py-10">
       <div className="flex justify-center">
         {/* Footer Content Wrapper */}
         <div className="w-full max-w-4xl px-4">
@@ -13,8 +13,8 @@ const Footer = () => {
 
             {/* Category Section */}
             <div className="w-full md:w-1/4">
-              <h3 className="text-lg font-semibold mb-3">Categories</h3>
-              <ul className="space-y-2 text-sm">
+              <h3 className="text-lg font-bold mb-3">Categories</h3>
+              <ul className="space-y-2 font-semibold text-sm">
                 <li>Lifestyle</li>
                 <li>Technology</li>
                 <li>Travel</li>
@@ -25,14 +25,14 @@ const Footer = () => {
             {/* Newsletter Section */}
             <div className="w-full md:w-1/4">
               <h3 className="text-lg font-semibold mb-3">Weekly Newsletter</h3>
-              <p className="text-sm mb-3">
+              <p className="text-sm mb-3 font-semibold">
                 Get blog articles and offers via email.
               </p>
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-center font-semibold md:justify-start">
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="p-2 rounded-l-md text-gray-900 w-32"
+                  className="p-2 border rounded-l-md text-white w-32"
                 />
                 <button className="bg-blue-600 text-white px-3 rounded-r-md">
                   Subscribe
@@ -43,7 +43,7 @@ const Footer = () => {
 
           {/* Bottom Footer Section */}
           <div className="border-t border-gray-700 pt-3">
-            <div className="flex flex-col items-center md:flex-row md:justify-between text-center md:text-left">
+            <div className="flex flex-col items-center font-bold md:flex-row md:justify-between text-center md:text-left">
               <p className="text-sm">&copy; MetaBlog | JS Template 2024. All Rights Reserved.</p>
               <div className="flex space-x-4 mt-2 md:mt-0">
                 <a href="#" className="text-sm hover:underline">Terms of Use</a>

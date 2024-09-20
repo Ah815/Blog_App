@@ -2,11 +2,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation"; // Import usePathname to detect the active route
+import { signOut, useSession } from "next-auth/react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname(); // Get the current path
+  const {status} = useSession()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -19,7 +21,7 @@ function Navbar() {
   // Function to add active class with underline
   const getLinkClasses = (route) => {
     return pathname === route
-      ? "block mt-4 md:inline-block md:mt-0 text-blue-400 "
+      ? "block mt-4 md:inline-block md:mt-0 text-blue-400"
       : "block mt-4 md:inline-block md:mt-0 hover:text-blue-400";
   };
 
@@ -27,11 +29,11 @@ function Navbar() {
     <nav className="p-3 md:ps-40">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Brand Logo */}
-        <div className="text-white font-bold text-xl w-1/4">
-          <Link href={"/"}>BrandName</Link>
+        <div className="font-bold text-white text-xl w-1/4">
+          <Link href="/">BrandName</Link>
         </div>
 
-        {/* Mobile Menu & Search Toggle */}
+        {/* Mobile Menu, Search Toggle & Login Toggle */}
         <div className="md:hidden flex gap-4">
           {/* Search Button for Mobile */}
           <button
@@ -53,11 +55,9 @@ function Navbar() {
               />
             </svg>
           </button>
+
           {/* Hamburger Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="text-white focus:outline-none"
-          >
+          <button onClick={toggleMenu} className="text-white focus:outline-none">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -76,38 +76,39 @@ function Navbar() {
         </div>
 
         {/* Links Section (Visible in Medium and Larger Screens) */}
-        <div
-          className={`w-2/4 hidden md:flex justify-center md:me-11 md:items-center md:w-2/4 ${
-            isOpen ? "block" : "hidden"
-          }`}
-        >
+        <div className="w-2/4 hidden md:flex justify-center md:me-11 md:items-center">
           <div className="md:flex md:items-center md:justify-center">
             <div className="text-white md:flex md:gap-4">
-              <Link href={"/"} className={getLinkClasses("/")}>
+              <Link href="/" className={getLinkClasses("/")}>
                 Home
               </Link>
-              <Link href={"/blog"} className={getLinkClasses("/blog")}>
+              <Link href="/blog" className={getLinkClasses("/blog")}>
                 Blog
               </Link>
-              {/* <Link href={"/pages"} className={getLinkClasses("/pages")}>
-                Pages
-              </Link> */}
-              <Link href={"/about"} className={getLinkClasses("/about")}>
+              <Link href="/about" className={getLinkClasses("/about")}>
                 About
               </Link>
-              <Link href={"/addBlog"} className={getLinkClasses("/addBlog")}>
-                AddBlog
+              <Link href="/addBlog" className={getLinkClasses("/addBlog")}>
+                Add Blog
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Search Input for Large Screens */}
-        <div className="hidden md:flex justify-between w-1/4 pe-96">
+        {/* Search Input and Login Button for Large Screens */}
+        <div className="hidden md:flex justify-between w-1/4 me-56 items-center">
+        {status === "unauthenticated" ? (
+
+          <Link href="/login" className="text-white hover:text-blue-300 px-4">
+            Login
+          </Link>
+          ) : (
+            <span onClick={signOut}>Logout</span>
+          ) }
           <input
             type="text"
             placeholder="Search"
-            className="bg-gray-800 text-white rounded-full px-3 py-1 focus:outline-none"
+            className="bg-gray-950 text-white rounded-full px-3 py-1 focus:outline-none"
           />
         </div>
       </div>
@@ -118,31 +119,27 @@ function Navbar() {
           <input
             type="text"
             placeholder="Search"
-            className="bg-gray-800 text-white rounded-full px-3 py-1 w-3/4 focus:outline-none"
+            className="bg-black text-white rounded-full px-3 py-1 w-3/4 focus:outline-none"
           />
         </div>
       )}
-      
 
       {/* Mobile Menu (Visible if toggled) */}
       {isOpen && (
-        <div className="flex justify-center md:hidden bg-gray-800 p-4 mt-2 rounded-lg">
-          <div className="flex flex-col gap-4">
-            <Link href={"/"} className={getLinkClasses("/")}>
+        <div className="md:hidden bg-black p-4 mt-2 rounded-lg">
+          <div className="flex flex-col gap-4 font-bold text-white">
+            <Link href="/" className={getLinkClasses("/")}>
               Home
             </Link>
-            <Link href={"/blog"} className={getLinkClasses("/blog")}>
+            <Link href="/blog" className={getLinkClasses("/blog")}>
               Blog
             </Link>
-            {/* <Link href={"/pages"} className={("/pages")}>
-              Pages
-            </Link> */}
-            <Link href={"/contacts"} className={getLinkClasses("/contacts")}>
+            <Link href="/contacts" className={getLinkClasses("/contacts")}>
               Contacts
             </Link>
-            <Link href={"/addBlog"} className={getLinkClasses("/addBlog")}>
-                AddBlog
-              </Link>
+            <Link href="/addBlog" className={getLinkClasses("/addBlog")}>
+              Add Blog
+            </Link>
           </div>
         </div>
       )}

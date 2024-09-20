@@ -13,9 +13,13 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@nextui-org/avatar": "^2.0.32",
     "@nextui-org/react": "^2.4.6",
-    "next": "14.2.6",
+    "auth": "^1.1.1",
+    "font-awesome": "^4.7.0",
+    "next": "^14.2.12",
+    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
+    "react-quill": "^2.0.0",
     "vector-icons": "^0.1.0"
   },
   "devDependencies": {
