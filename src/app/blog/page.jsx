@@ -188,9 +188,8 @@ const HoverCard = ({ item }) => {
    <div
      onMouseEnter={() => setHover(true)}
      onMouseLeave={() => setHover(false)}
-     className={`relative bg-black p-3 shadow-sm shadow-slate-400 rounded-lg text-white transition-transform transform ${
-       hover ? "rotate-6" : ""
-     } hover:scale-105 hover:bg-gray-800 hover:shadow-lg hover:opacity-90 sm:hover:opacity-100`}
+     className={`relative bg-black p-3 shadow-sm shadow-slate-400 rounded-lg text-white 
+            hover:scale-105 hover:bg-gray-800 hover:shadow-lg hover:opacity-90 sm:hover:opacity-100`}
    >
      {/* Blog Image */}
      <div className="relative w-full h-32 sm:h-40 overflow-hidden rounded-md">
