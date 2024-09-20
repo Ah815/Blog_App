@@ -3,11 +3,13 @@ import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
 import 'react-quill/dist/quill.snow.css'; // Import the styles for React Quill
+import Image from 'next/image'; // Import the Image component from Next.js
 
 // Dynamically import React Quill with SSR disabled
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
-const page = () => {
+// Use uppercase letter for the component name
+const Page = () => {
   const [blogImage, setBlogImage] = useState(null);
   const [profileImage, setProfileImage] = useState(null);
   const [category, setCategory] = useState('');
@@ -58,7 +60,15 @@ const page = () => {
               onChange={(e) => handleImageChange(e, setBlogImage)}
               className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
             />
-            {blogImage && <img src={blogImage} alt="Blog Preview" className="mt-4 h-32 w-32 object-cover" />}
+            {blogImage && (
+              <Image
+                src={blogImage}
+                alt="Blog Preview"
+                className="mt-4 h-32 w-32 object-cover"
+                width={128} // Adjust width according to your needs
+                height={128} // Adjust height according to your needs
+              />
+            )}
           </div>
 
           {/* Category Dropdown */}
@@ -106,7 +116,15 @@ const page = () => {
               onChange={(e) => handleImageChange(e, setProfileImage)}
               className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
             />
-            {profileImage && <img src={profileImage} alt="Profile Preview" className="mt-4 h-32 w-32 object-cover" />}
+            {profileImage && (
+              <Image
+                src={profileImage}
+                alt="Profile Preview"
+                className="mt-4 h-32 w-32 object-cover"
+                width={128} // Adjust width according to your needs
+                height={128} // Adjust height according to your needs
+              />
+            )}
           </div>
 
           {/* Author Name */}
@@ -169,4 +187,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page; // Ensure to export with the correct name
