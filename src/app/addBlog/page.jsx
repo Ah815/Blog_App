@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
 import 'react-quill/dist/quill.snow.css'; // Import the styles for React Quill
 import Image from 'next/image'; // Import the Image component from Next.js
+import Footer from '@/components/Footer';
 
 // Dynamically import React Quill with SSR disabled
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
@@ -45,7 +46,7 @@ const Page = () => {
       <div>
         <Navbar />
       </div>
-      <div className="container mx-auto p-6 max-w-5xl">
+      <div className="container mx-auto p-6 max-w-5xl ">
         <form onSubmit={handleSubmit} className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <h2 className="text-2xl font-bold mb-6 text-black">Upload New Blog Post</h2>
 
@@ -58,7 +59,7 @@ const Page = () => {
               type="file"
               id="blogImage"
               onChange={(e) => handleImageChange(e, setBlogImage)}
-              className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+              className="block w-full text-sm text-black border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
             />
             {blogImage && (
               <Image
@@ -80,7 +81,7 @@ const Page = () => {
               id="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
             >
               <option value="">Select a Category</option>
               <option value="Lifestyle">Lifestyle</option>
@@ -101,20 +102,20 @@ const Page = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Enter blog title"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
           {/* Profile Image Upload */}
           <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="profileImage">
+            <label className="block text-black text-sm font-bold mb-2" htmlFor="profileImage">
               Profile Image
             </label>
             <input
               type="file"
               id="profileImage"
               onChange={(e) => handleImageChange(e, setProfileImage)}
-              className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+              className="block w-full text-sm text-black border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
             />
             {profileImage && (
               <Image
@@ -129,7 +130,7 @@ const Page = () => {
 
           {/* Author Name */}
           <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="name">
+            <label className="block text-black text-sm font-bold mb-2" htmlFor="name">
               Author Name
             </label>
             <input
@@ -138,7 +139,7 @@ const Page = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
@@ -152,7 +153,7 @@ const Page = () => {
               id="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
 
@@ -161,7 +162,7 @@ const Page = () => {
             <label className="block text-black text-sm font-bold mb-2" htmlFor="content">
               Blog Content
             </label>
-            <div className="h-40"> {/* Adjust height here */}
+            <div className="h-56"> {/* Adjust height here */}
               <ReactQuill
                 value={content}
                 onChange={setContent}
@@ -173,15 +174,18 @@ const Page = () => {
           </div>
 
           {/* Submit Button */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between pt-16 md:pt-14 ">
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Submit Blog
             </button>
           </div>
         </form>
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );

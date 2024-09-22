@@ -29,7 +29,7 @@ function Navbar() {
     <nav className="p-3 md:ps-40">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Brand Logo */}
-        <div className="font-bold text-white text-xl w-1/4">
+        <div className="font-bold text-black text-xl w-1/4">
           <Link href="/">BrandName</Link>
         </div>
 
@@ -38,7 +38,7 @@ function Navbar() {
           {/* Search Button for Mobile */}
           <button
             onClick={toggleSearch}
-            className="text-white focus:outline-none"
+            className="text-black focus:outline-none"
           >
             <svg
               className="w-6 h-6"
@@ -57,7 +57,7 @@ function Navbar() {
           </button>
 
           {/* Hamburger Menu Button */}
-          <button onClick={toggleMenu} className="text-white focus:outline-none">
+          <button onClick={toggleMenu} className="text-black focus:outline-none">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -78,7 +78,7 @@ function Navbar() {
         {/* Links Section (Visible in Medium and Larger Screens) */}
         <div className="w-2/4 hidden md:flex justify-center md:me-11 md:items-center">
           <div className="md:flex md:items-center md:justify-center">
-            <div className="text-white md:flex md:gap-4">
+            <div className="text-black md:flex md:gap-4">
               <Link href="/" className={getLinkClasses("/")}>
                 Home
               </Link>
@@ -99,7 +99,7 @@ function Navbar() {
         <div className="hidden md:flex justify-between w-1/4 me-56 items-center">
         {status === "unauthenticated" ? (
 
-          <Link href="/login" className="text-white hover:text-blue-300 px-4">
+          <Link href="/login" className="text-black hover:text-blue-300 px-4">
             Login
           </Link>
           ) : (
@@ -108,7 +108,7 @@ function Navbar() {
           <input
             type="text"
             placeholder="Search"
-            className="bg-gray-950 text-white rounded-full px-3 py-1 focus:outline-none"
+            className="bg-white text-black rounded-full px-3 py-1 focus:outline-none"
           />
         </div>
       </div>
@@ -119,23 +119,23 @@ function Navbar() {
           <input
             type="text"
             placeholder="Search"
-            className="bg-black text-white rounded-full px-3 py-1 w-3/4 focus:outline-none"
+            className="bg-white text-black rounded-full px-3 py-1 w-3/4 focus:outline-none"
           />
         </div>
       )}
 
       {/* Mobile Menu (Visible if toggled) */}
       {isOpen && (
-        <div className="md:hidden bg-black p-4 mt-2 rounded-lg">
-          <div className="flex flex-col gap-4 font-bold text-white">
+        <div className="md:hidden flex justify-center bg-white p-4 mt-2 rounded-lg">
+          <div className="flex flex-col gap-4 font-bold text-black">
             <Link href="/" className={getLinkClasses("/")}>
               Home
             </Link>
             <Link href="/blog" className={getLinkClasses("/blog")}>
               Blog
             </Link>
-            <Link href="/contacts" className={getLinkClasses("/contacts")}>
-              Contacts
+            <Link href="/about" className={getLinkClasses("/about")}>
+              About
             </Link>
             <Link href="/addBlog" className={getLinkClasses("/addBlog")}>
               Add Blog

@@ -8,84 +8,86 @@ import Navbar from "@/components/Navbar";
 const BlogCard = () => {
   const data = useMemo(() => [
     {
-      img: "/testImg.jpg",
+      img: "/testImg1.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg2.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg3.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg2.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg4.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg3.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg1.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg2.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg3.jpg",
       category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
+      title:
+        "The Impact of Technology on the Workplace: How Technology is Changing.",
       profile: "/profile.jpg",
       name: "Tracey Wilson",
       date: "August 20, 2022",
-    },
-     {
-      img: "/testImg.jpg",
-      category: "Technology",
-      title: "The Impact of Technology on the Workplace: How Technology is Changing.",
-      profile: "/profile.jpg",
-      name: "Tracey Wilson",
-      date: "August 20, 2022",
+    
     },
     // Add more entries as needed
   ], []); // Added an empty dependency array
@@ -146,19 +148,19 @@ const BlogCard = () => {
         <button
           onClick={handlePrevPage}
           disabled={currentPage === 1}
-          className={`px-4 py-2 rounded-lg bg-gray-700 text-white hover:bg-gray-600 ${
+          className={`px-2 py-2 rounded-lg bg-white text-black hover:bg-gray-600 ${
             currentPage === 1 && "opacity-50 cursor-not-allowed"
           }`}
         >
           Previous
         </button>
-        <span className="text-white">
+        <span className="text-black">
           Page {currentPage} of {totalPages}
         </span>
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 rounded-lg bg-gray-700 text-white hover:bg-gray-600 ${
+          className={`px-2 py-2 rounded-lg bg-white text-black hover:bg-gray-600 ${
             currentPage === totalPages && "opacity-50 cursor-not-allowed"
           }`}
         >
@@ -178,8 +180,8 @@ const HoverCard = ({ item }) => {
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className={`relative bg-black p-3 shadow-sm shadow-slate-400 rounded-lg text-white 
-            hover:scale-105 hover:bg-gray-800 hover:shadow-lg hover:opacity-90 sm:hover:opacity-100`}
+      className={`relative bg-white p-3 shadow-sm shadow-slate-400 rounded-lg text-black
+            hover:scale-105 hover:bg-gray-300 hover:shadow-lg hover:opacity-90 sm:hover:opacity-100`}
     >
       <div className="relative w-full h-32 sm:h-40 overflow-hidden rounded-md">
         <Image
@@ -191,7 +193,7 @@ const HoverCard = ({ item }) => {
       </div>
 
       <div className="mt-2">
-        <p className="bg-gray-900 w-20 rounded-md text-sm text-blue-400">
+        <p className="bg-gray-300 w-20 rounded-md text-sm text-blue-400">
           {item.category}
         </p>
         <h3 className="mt-2 text-xs sm:text-sm font-semibold">{item.title}</h3>

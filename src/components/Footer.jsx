@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="text-white  py-10">
+    <footer className="text-black  py-10">
       <div className="flex justify-center">
         {/* Footer Content Wrapper */}
         <div className="w-full max-w-4xl px-4">
@@ -32,9 +32,9 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="p-2 border rounded-l-md text-white w-32"
+                  className="p-2 border rounded-l-md text-black w-32"
                 />
-                <button className="bg-blue-600 text-white px-3 rounded-r-md">
+                <button className="bg-blue-600 text-black px-3 rounded-r-md">
                   Subscribe
                 </button>
               </div>

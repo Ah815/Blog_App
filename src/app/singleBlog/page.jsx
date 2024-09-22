@@ -22,7 +22,7 @@ const BlogPost = () => {
       <div>
         <Navbar />
       </div>
-      <div className="min-h-screen bg-black flex justify-center text-white p-4">
+      <div className="min-h-screen bg-white flex justify-center text-black p-4">
         <div className="max-w-3xl w-full">
           {/* Post Content - Mapped Sections */}
           <div className="text-base md:text-lg leading-relaxed">
@@ -33,7 +33,7 @@ const BlogPost = () => {
                 <h2 className="text-2xl md:text-4xl font-bold mb-1 ">
                   {item.title}
                 </h2>
-                <div className="text-sm bg-gray-700 rounded-lg w-fit px-2 py-1 text-blue-400 mb-2">
+                <div className="text-sm bg-gray-300 rounded-lg w-fit px-2 py-1 text-blue-400 mb-2">
                   {item.category}
                 </div>
                 <div className="flex items-center text-gray-400 mb-6">

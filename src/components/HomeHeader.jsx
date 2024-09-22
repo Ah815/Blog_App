@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const HomeHeader = () => {
   const data = [
     {
-      img: "/testImg.jpg",
+      img: "/testImg1.jpg",
       category: "Technology",
       title:
         "The Impact of Technology on the Workplace: How Technology is Changing.",
@@ -14,7 +14,7 @@ const HomeHeader = () => {
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg2.jpg",
       category: "Technology",
       title:
         "The Impact of Technology on the Workplace: How Technology is Changing.",
@@ -23,7 +23,7 @@ const HomeHeader = () => {
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg3.jpg",
       category: "Technology",
       title:
         "The Impact of Technology on the Workplace: How Technology is Changing.",
@@ -32,7 +32,7 @@ const HomeHeader = () => {
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg2.jpg",
       category: "Technology",
       title:
         "The Impact of Technology on the Workplace: How Technology is Changing.",
@@ -41,7 +41,7 @@ const HomeHeader = () => {
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
+      img: "/testImg4.jpg",
       category: "Technology",
       title:
         "The Impact of Technology on the Workplace: How Technology is Changing.",
@@ -50,34 +50,7 @@ const HomeHeader = () => {
       date: "August 20, 2022",
     },
     {
-      img: "/testImg.jpg",
-      category: "Technology",
-      title:
-        "The Impact of Technology on the Workplace: How Technology is Changing.",
-      profile: "/profile.jpg",
-      name: "Tracey Wilson",
-      date: "August 20, 2022",
-    },
-    {
-      img: "/testImg.jpg",
-      category: "Technology",
-      title:
-        "The Impact of Technology on the Workplace: How Technology is Changing.",
-      profile: "/profile.jpg",
-      name: "Tracey Wilson",
-      date: "August 20, 2022",
-    },
-    {
-      img: "/testImg.jpg",
-      category: "Technology",
-      title:
-        "The Impact of Technology on the Workplace: How Technology is Changing.",
-      profile: "/profile.jpg",
-      name: "Tracey Wilson",
-      date: "August 20, 2022",
-    },
-    {
-      img: "/testImg.jpg",
+      img: "/testImg3.jpg",
       category: "Technology",
       title:
         "The Impact of Technology on the Workplace: How Technology is Changing.",
@@ -123,7 +96,7 @@ const HoverCard = ({ item }) => {
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className={`relative bg-black p-3 shadow-sm shadow-slate-400 rounded-lg text-white hover:scale-105 hover:bg-gray-800 hover:shadow-lg hover:opacity-90 sm:hover:opacity-100`}
+      className={`relative bg-white p-3 shadow-sm shadow-slate-400 rounded-lg text-black hover:scale-105 hover:bg-gray-300 hover:shadow-lg hover:opacity-90 sm:hover:opacity-100`}
     >
       {/* Blog Image */}
       <div className="relative w-full h-32 sm:h-40 overflow-hidden rounded-md">
@@ -137,7 +110,7 @@ const HoverCard = ({ item }) => {
 
       {/* Blog Details */}
       <div className="mt-2">
-        <p className="bg-gray-900 w-20 rounded-md text-sm text-blue-400">
+        <p className="bg-gray-300 w-20 rounded-md text-sm text-blue-400">
           {item.category}
         </p>
         <h3 className="mt-2 text-xs sm:text-sm font-semibold">{item.title}</h3>

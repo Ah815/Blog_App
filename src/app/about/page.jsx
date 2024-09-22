@@ -8,6 +8,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const AboutPage = () => {
   const [formData, setFormData] = useState({
@@ -36,32 +37,28 @@ const AboutPage = () => {
         <Navbar />
       </div>
       <div className="container mx-auto p-4">
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Main Content */}
+        <div className="flex flex-col items-center">
           {/* Left Column - Image and Short Bio */}
-          <div className="bg-gray-800 text-white p-6 rounded-lg w-5/6 mx-auto text-center md:max-w-3xl md:mx-auto mt-10">
-            <div className="flex items-center justify-center mb-4">
-              <div className="mr-4"></div>
-              <div className="text-left">
-                <h3 className="flex justify-center text-lg font-semibold">
-                  Muhammad Ahmed Hussain
-                </h3>
-                <p className="flex justify-center text-gray-400">
-                  Collaborator & Editor
-                </p>
+          <div className="text-black shadow-sm shadow-slate-400 p-6 rounded-lg w-full md:w-5/6 mx-auto text-center md:max-w-3xl mt-10">
+            <div className="flex flex-col md:flex-row items-center justify-center mb-4">
+              <div className="mr-0 md:mr-4"></div>
+              <div className="text-center md:text-left">
+                <h3 className="text-lg font-semibold">Muhammad Ahmed Hussain</h3>
+                <p className="text-black">Collaborator & Editor</p>
               </div>
             </div>
-            <p className="text-sm text-gray-300 mb-4">
+            <p className="text-sm text-black mb-4">
               Meet Jonathan Doe, a passionate writer and blogger with a love for
-              technology and travel. Jonathan holds a degree in Computer Science
-              and has spent years working in the tech industry, gaining a deep
+              technology and travel. Jonathan holds a degree in Computer Science and
+              has spent years working in the tech industry, gaining a deep
               understanding of the impact technology has on our lives.
             </p>
             <div className="flex justify-center space-x-4">
               <a
                 href="https://www.facebook.com/yourprofile"
                 target="_blank"
-                className="text-gray-400 hover:text-white"
+                className="text-black hover:text-blue-600"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
@@ -69,7 +66,7 @@ const AboutPage = () => {
               <a
                 href="https://www.twitter.com/yourprofile"
                 target="_blank"
-                className="text-gray-400 hover:text-white"
+                className="text-black hover:text-blue-600"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faTwitter} size="2x" />
@@ -77,7 +74,7 @@ const AboutPage = () => {
               <a
                 href="https://www.instagram.com/yourprofile"
                 target="_blank"
-                className="text-gray-400 hover:text-white"
+                className="text-black hover:text-blue-600"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
@@ -85,7 +82,7 @@ const AboutPage = () => {
               <a
                 href="https://www.linkedin.com/in/yourprofile"
                 target="_blank"
-                className="text-gray-400 hover:text-white"
+                className="text-black hover:text-blue-600"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
@@ -93,19 +90,18 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Right Column - Long Bio and Contact Form */}
-          <div className="col-span-2">
-            {/* Long Bio */}
-
-            {/* Contact Form */}
-            <h2 className="text-xl font-bold mb-4">Contact Me</h2>
+          {/* Right Column - Contact Form */}
+          <div className="w-full md:w-5/6 lg:w-2/3 p-0 md:p-8 mt-8">
+            <h2 className="text-xl font-bold mt-8 mb-4 text-center md:text-left">
+              Contact Me
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* First Name */}
                 <div>
                   <label
                     htmlFor="firstName"
-                    className="block text-sm font-medium text-gray-500"
+                    className="block text-sm font-medium text-black"
                   >
                     First Name <span className="text-red-600">*</span>
                   </label>
@@ -124,7 +120,7 @@ const AboutPage = () => {
                 <div>
                   <label
                     htmlFor="lastName"
-                    className="block text-sm font-medium text-gray-500"
+                    className="block text-sm font-medium text-black"
                   >
                     Last Name <span className="text-red-600">*</span>
                   </label>
@@ -144,7 +140,7 @@ const AboutPage = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-500"
+                  className="block text-sm font-medium text-black"
                 >
                   Email <span className="text-red-600">*</span>
                 </label>
@@ -163,7 +159,7 @@ const AboutPage = () => {
               <div>
                 <label
                   htmlFor="dueDate"
-                  className="block text-sm font-medium text-gray-500"
+                  className="block text-sm font-medium text-black"
                 >
                   Due Date <span className="text-red-600">*</span>
                 </label>
@@ -182,7 +178,7 @@ const AboutPage = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-500"
+                  className="block text-sm font-medium text-black"
                 >
                   Message <span className="text-red-600">*</span>
                 </label>
@@ -206,6 +202,9 @@ const AboutPage = () => {
             </form>
           </div>
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );
