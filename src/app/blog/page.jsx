@@ -148,8 +148,8 @@ const BlogCard = () => {
         <button
           onClick={handlePrevPage}
           disabled={currentPage === 1}
-          className={`px-2 py-2 rounded-lg bg-white text-black hover:bg-gray-600 ${
-            currentPage === 1 && "opacity-50 cursor-not-allowed"
+          className={`px-2 py-2 rounded-lg bg-white text-black hover:bg-blue-500 ${
+            currentPage === 1 
           }`}
         >
           Previous
@@ -160,8 +160,8 @@ const BlogCard = () => {
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className={`px-2 py-2 rounded-lg bg-white text-black hover:bg-gray-600 ${
-            currentPage === totalPages && "opacity-50 cursor-not-allowed"
+          className={`px-2 py-2 rounded-lg bg-white text-black hover:bg-blue-500 ${
+            currentPage === totalPages 
           }`}
         >
           Next
@@ -216,7 +216,7 @@ const HoverCard = ({ item }) => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <a
             href="/singleBlog" // Replace with the correct page URL
-            className="bg-black text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-all"
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-all"
           >
             Full Blog
           </a>
