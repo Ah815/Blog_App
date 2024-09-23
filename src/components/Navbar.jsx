@@ -99,7 +99,7 @@ function Navbar() {
         <div className="hidden md:flex justify-between w-1/4 me-56 items-center">
         {status === "unauthenticated" ? (
 
-          <Link href="/login" className="text-black hover:text-blue-300 px-4">
+          <Link href="/login" className="text-black hover:text-blue-300 px-4 ps-12">
             Login
           </Link>
           ) : (
