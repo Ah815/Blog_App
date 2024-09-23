@@ -30,7 +30,7 @@ function Navbar() {
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Brand Logo */}
         <div className="font-bold text-black text-xl w-1/4">
-          <Link href="/">BrandName</Link>
+          <Link href="/">MetaBlog</Link>
         </div>
 
         {/* Mobile Menu, Search Toggle & Login Toggle */}
@@ -108,7 +108,7 @@ function Navbar() {
           <input
             type="text"
             placeholder="Search"
-            className="bg-white text-black rounded-full px-3 py-1 focus:outline-none"
+            className="bg-white text-black border border-black rounded-full px-3 py-1 focus:outline-none"
           />
         </div>
       </div>
@@ -119,7 +119,7 @@ function Navbar() {
           <input
             type="text"
             placeholder="Search"
-            className="bg-white text-black rounded-full px-3 py-1 w-3/4 focus:outline-none"
+            className="bg-white text-black border border-black rounded-full px-3 py-1 w-3/4 focus:outline-none"
           />
         </div>
       )}
