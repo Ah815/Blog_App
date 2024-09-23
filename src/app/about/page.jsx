@@ -195,7 +195,7 @@ const AboutPage = () => {
 
               <button
                 type="submit"
-                className="w-full bg-indigo-600 text-white font-medium p-2 rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-blue-500 text-white font-medium p-2 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-indigo-500"
               >
                 Send Message
               </button>
